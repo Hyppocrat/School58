@@ -19,4 +19,10 @@ int main(){
   reverse(vec.begin(), vec.end());
   //создать двумерный вектор размера n * m
   vector< vector<char> > vec(n, vector<char>(m));
+  //добавить элемент в конец вектора
+  vec.push_back(x);
+  //удалить элемент из конца списка
+  vec.pop_back();
+  //вывести на экран последний элемент списка
+  cout << vec.back();
 }
