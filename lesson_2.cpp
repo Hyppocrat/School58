@@ -36,7 +36,7 @@ int main(){
 		cin >> t;
 		a[t + 1000]++;
 	}
-	for(int i = 1; i < 2000; i++){
+	for(int i = 0; i < 2001; i++){
 		for(int j = 0; j < a[i]; j++){
 			cout << i - 1000 << " ";
 		}
