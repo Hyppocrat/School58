@@ -54,7 +54,7 @@ long long binpow_recursive(int a, int n){
     }
 }
 
-    vector<int> divisors(int n){
+vector<int> divisors(int n){
     vector<int> ans;
     for(int i = 2; i * i <= n; i++){
         if (n % i == 0){
