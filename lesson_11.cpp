@@ -106,3 +106,31 @@ int main(){
     }    
     sort(vec.begin(), vec.end(), cmp)
 }
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct gunner{
+    int number; // номер стрелка
+    int get; // количество попаданий
+};
+
+bool cmp(gunner a, gunner b){
+    return (a.get >= b.get);
+}
+
+int main(){
+    int n;
+    cin >> n;
+    vector<gunner> vec(n);
+    for(int i = 0; i < n; i++){
+        cin >> vec[i].get;
+        vec[i].number = i + 1;
+    }
+    sort(vec.begin(), vec.end(), cmp);
+    for(int i = 0; i < n; i++){
+        cout << vec[i].number << " " << vec[i].get << endl;
+    }
+}
