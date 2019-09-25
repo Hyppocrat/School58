@@ -33,3 +33,47 @@ if __name__ == '__main__':
     wnd = Window()
     wnd.show()
     sys.exit(app.exec())
+
+    
+    =========================================================
+    
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
+
+
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.setGeometry(100, 100, 260, 320)
+        self.setWindowTitle('My First PyQt Program')
+
+        vbox = QVBoxLayout()
+        vbox.addStretch(1)
+        for _ in range(20, 320, 50):
+            btn = QPushButton('Push me!')
+            vbox.addWidget(btn)
+            vbox.addStretch(1)
+            btn.resize(200, 30)
+            btn.clicked.connect(self.push)
+
+        self.setLayout(vbox)
+
+    def push(self):
+        btn = self.sender()
+        if btn.text() == 'Push me!':
+            count = 0
+        else:
+            count = int(btn.text().split()[3])
+        count += 1
+        btn.setText(f'You hit me {count} times!')
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    wnd = Window()
+    wnd.show()
+    sys.exit(app.exec())
