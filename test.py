@@ -104,14 +104,17 @@ class Example(QWidget):
         self.label.setText("Количество нажатий на кнопку")
         self.label.move(80, 30)
 
-        self.LCD_count = QLCDNumber(self)
-        self.LCD_count.move(110, 80)
-
+        #self.LCD_count = QLCDNumber(self)
+        #self.LCD_count.move(110, 80)
+        self.label1 = QLabel(self)
+        self.label1.setText("0")
+        self.label1.move(110, 80)
+        
         self.count = 0
 
     def hello(self):
         self.count += 1
-        self.LCD_count.display(self.count)
+        self.label1.setText(str(self.count))
         
         
 if __name__ == '__main__':
