@@ -107,7 +107,7 @@ class Example(QWidget):
         #self.LCD_count = QLCDNumber(self)
         #self.LCD_count.move(110, 80)
         self.label1 = QLabel(self)
-        self.label1.setText("0")
+        self.label1.setText("    0")
         self.label1.move(110, 80)
         
         self.count = 0
