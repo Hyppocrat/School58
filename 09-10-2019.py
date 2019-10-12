@@ -64,3 +64,36 @@ f = open("files/example2.txt", 'w')
 for i in range(10):
     print("%0.2f" % sin(i), file=f)
 f.close()
+
+
+
+from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFileDialog
+from PyQt5.QtGui import QPixmap
+import sys
+
+SCREEN_SIZE = [400, 400]
+
+class Example(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(400, 400, *SCREEN_SIZE)
+        self.setWindowTitle('Отображение картинки')
+
+        ## Изображение
+        fname = QFileDialog.getOpenFileName(self, 'Выбрать картинку', '')[0] 
+        self.pixmap = QPixmap(fname)
+        self.image = QLabel(self)
+        self.image.move(80, 60)
+        self.image.resize(250, 250)
+        self.image.setPixmap(self.pixmap)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Example()
+    ex.show()
+    sys.exit(app.exec())
