@@ -98,7 +98,13 @@ if __name__ == '__main__':
     ex.show()
     sys.exit(app.exec())
 
+
     
+=================================================    
+
+from PyQt5.QtGui import QPen
+from math import pi, cos, sin
+from PyQt5.QtCore import Qt    
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtGui import QPainter, QColor
@@ -128,7 +134,33 @@ class Example(QWidget):
         qp.setBrush(QColor(255, 0, 0))
         qp.drawRect(30, 270, 480, 120)
 
+    def xs(self,x):
+        return x + SCREEN_SIZE[0] // 2
 
+    def ys(self,y):
+        return SCREEN_SIZE[1] // 2 - y
+
+def drawStar(self,qp):
+    # Задаем длину стороны и количество углов
+    RAD = 100
+    p = 5
+
+    # Считаем координаты и переводим их в экранные
+    nodes = [(RAD * cos(i * 2 * pi / p), RAD * sin(i * 2 * pi / p)) for i in range(p)]
+    nodes2 = [(self.xs(node[0]), self.ys(node[1])) for node in nodes]
+
+    # Рисуем пятиугольник
+    for i in range(-1, len(nodes2) - 1):
+        qp.drawLine(*nodes2[i], *nodes2[i + 1])
+
+    # Изменяем цвет линии           
+    pen = QPen(Qt.red, 2)
+    qp.setPen(pen)
+
+    # Рисуем звезду
+    for i in range(-2, len(nodes2) - 2):
+         qp.drawLine(*nodes2[i], *nodes2[i + 2])    
+    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
