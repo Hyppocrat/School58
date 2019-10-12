@@ -84,7 +84,7 @@ class Example(QWidget):
         self.setWindowTitle('Отображение картинки')
 
         ## Изображение
-        fname = QFileDialog.getOpenFileName(self, 'Выбрать картинку', 'C:\', "Картинка(*.png)")[0] 
+        fname = QFileDialog.getOpenFileName(self, 'Выбрать картинку', 'C:\')[0] 
         self.pixmap = QPixmap(fname)
         self.image = QLabel(self)
         self.image.move(80, 60)
