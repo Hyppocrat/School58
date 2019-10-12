@@ -118,7 +118,7 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(300, 300, 600, 600)
+        self.setGeometry(300, 300, *SCREEN_SIZE)
         self.setWindowTitle('Рисование')
         self.show()
 
