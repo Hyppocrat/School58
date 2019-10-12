@@ -140,26 +140,26 @@ class Example(QWidget):
     def ys(self,y):
         return SCREEN_SIZE[1] // 2 - y
 
-def drawStar(self,qp):
-    # Задаем длину стороны и количество углов
-    RAD = 100
-    p = 5
+    def drawStar(self,qp):
+        # Задаем длину стороны и количество углов
+        RAD = 100
+        p = 5
 
-    # Считаем координаты и переводим их в экранные
-    nodes = [(RAD * cos(i * 2 * pi / p), RAD * sin(i * 2 * pi / p)) for i in range(p)]
-    nodes2 = [(self.xs(node[0]), self.ys(node[1])) for node in nodes]
+        # Считаем координаты и переводим их в экранные
+        nodes = [(RAD * cos(i * 2 * pi / p), RAD * sin(i * 2 * pi / p)) for i in range(p)]
+        nodes2 = [(self.xs(node[0]), self.ys(node[1])) for node in nodes]
 
-    # Рисуем пятиугольник
-    for i in range(-1, len(nodes2) - 1):
-        qp.drawLine(*nodes2[i], *nodes2[i + 1])
+        # Рисуем пятиугольник
+        for i in range(-1, len(nodes2) - 1):
+            qp.drawLine(*nodes2[i], *nodes2[i + 1])
 
-    # Изменяем цвет линии           
-    pen = QPen(Qt.red, 2)
-    qp.setPen(pen)
+        # Изменяем цвет линии           
+        pen = QPen(Qt.red, 2)
+        qp.setPen(pen)
 
-    # Рисуем звезду
-    for i in range(-2, len(nodes2) - 2):
-         qp.drawLine(*nodes2[i], *nodes2[i + 2])    
+        # Рисуем звезду
+        for i in range(-2, len(nodes2) - 2):
+             qp.drawLine(*nodes2[i], *nodes2[i + 2])    
     
 if __name__ == '__main__':
     app = QApplication(sys.argv)
