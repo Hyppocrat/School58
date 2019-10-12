@@ -110,6 +110,8 @@ from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtGui import QPainter, QColor
 
 
+SCREEN_SIZE = [600, 600]
+
 class Example(QWidget):
     def __init__(self):
         super().__init__()
@@ -123,7 +125,7 @@ class Example(QWidget):
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        self.drawFlag(qp)
+        self.drawStar(qp)
         qp.end()
 
     def drawFlag(self,qp):
@@ -161,7 +163,8 @@ class Example(QWidget):
         for i in range(-2, len(nodes2) - 2):
              qp.drawLine(*nodes2[i], *nodes2[i + 2])    
     
+    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
-    sys.exit(app.exec_())    
+    sys.exit(app.exec_())  
