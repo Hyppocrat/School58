@@ -168,3 +168,15 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
     sys.exit(app.exec_())  
+
+    
+============================================
+
+from PIL import Image, ImageFilter
+
+
+def motion_blur(n):
+    im = Image.open('image.jpg')
+    im = im.transpose(Image.ROTATE_270)
+    im = im.filter(ImageFilter.GaussianBlur(n))
+    im.save('res.jpg')
