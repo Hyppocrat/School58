@@ -11,7 +11,8 @@ int main(){
    getline(cin, s);
    cout << s;
    s.clear();
-   s.resize(n);*/
+   s.resize(n);
+   string t = s.substr(2, 4); // взять 4 символа из строки, начиная со 2-го
    /*string s, t;
    cin >> s >> t;
    if (s.rfind(t) != -1){
