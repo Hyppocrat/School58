@@ -58,7 +58,7 @@ dah*/
     return ans;
 }*/
 
-bool is_simple(int n){
+bool is_prime(int n){
     int cnt = 1; // количество делителей числа
     for(int i = 2; i <= n / 2; i++){   
         if (n % i == 0){
@@ -68,7 +68,7 @@ bool is_simple(int n){
     return (cnt == 2);
 }
 
-bool is_simple_clever(int n){
+bool is_prime_clever(int n){
     for(int i = 2; i * i <= n; i++){
         if (n % i == 0){
             return true;
